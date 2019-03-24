@@ -14,7 +14,7 @@ const webpackStream = require('webpack-stream');
 function browserSync(done) {
   browsersync.init({
     server: {
-      baseDir: "./dist/"
+      baseDir: "./docs/"
     },
     port: 3000
   });
@@ -27,7 +27,7 @@ function browserSyncReload(done) {
 }
 function html() {
   return src('./src/**/*.html')
-    .pipe(dest('./dist'))
+    .pipe(dest('./docs'))
 }
 function styles() {
   return src('./src/sass/main.sass')
@@ -48,7 +48,7 @@ function styles() {
       basename: "main",
       suffix: ".min",
     }))
-    .pipe(dest('./dist/css'))
+    .pipe(dest('./docs/css'))
 };
 
 
@@ -82,13 +82,13 @@ function js() {
     }))
     // .pipe(uglify())
     // .pipe(rename({ suffix: '.min' }))
-    .pipe(dest('./dist/js'))
+    .pipe(dest('./docs/js'))
 };
 
 
 function fonts() {
   return src('./src/fonts/**/*.*')
-    .pipe(dest(('./dist/fonts')))
+    .pipe(dest(('./docs/fonts')))
 }
 
 function watcher() {
@@ -100,9 +100,9 @@ function watcher() {
 
 
 function zip() {
-  return src('./dist/**/*')
+  return src('./docs/**/*')
     .pipe(archive('build.zip'))
-    .pipe(dest('./dist'))
+    .pipe(dest('./docs'))
 }
 
 exports.js = js;
