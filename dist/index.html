@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=PT+Sans"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      @keyframes kaboom {
+        0% {
+          opacity: 1;
+          transform: translateX(-3%);
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0%);
+        }
+      }
+      @keyframes kaboomTwoBottom {
+        0% {
+          transform: translateY(50%);
+        }
+        100% {
+          transform: translateY(0%);
+        }
+      }
+      @keyframes kaboomTwoTop {
+        0% {
+          transform: translateY(-50%);
+        }
+        100% {
+          transform: translateY(0%);
+        }
+      }
+      body {
+        margin: 0;
+        background-color: #e8e8e8;
+        font-family: "PT Sans", sans-serif;
+        font-size: 14px;
+      }
+      .jon-surface-wrap {
+        padding: 20px 0 20px 0;
+        position: relative;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .jon-cartesian-axis-ticks-x .jon-cartesian-axis-tick:nth-child(even) {
+        animation: kaboom 0.7s;
+      }
+      .jon-cartesian-axis-ticks-x .jon-cartesian-axis-tick:nth-child(odd) {
+        animation: kaboom 0.5s;
+      }
+      .jon-cartesian-grid line {
+        animation: kaboomTwoBottom 0.5s;
+      }
+      .jon-cartesian-axis-ticks-y .jon-cartesian-axis-tick {
+        animation: kaboomTwoTop 0.5s;
+      }
+      .jon-dot-info-g {
+        font-weight: 700;
+      }
+      .jon-dot-info-text-month {
+        font-size: 16px;
+      }
+      .jon-line-settings-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+      }
+      /* Option */
+      .option-outer {
+        padding: 10px 25px 12px 25px;
+        border: 2px solid #e4e4e4;
+        border-radius: 20px;
+        margin-right: 20px;
+      }
+      .option {
+        display: block;
+        margin-right: 2.5em;
+      }
+
+      /* Check */
+
+      .check {
+        padding-left: 1.2em;
+      }
+
+      .check__input {
+        position: absolute;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+
+      .check__box {
+        position: absolute;
+        margin-top: 0.2em;
+        margin-left: -2em;
+        width: 1em;
+        height: 1em;
+        overflow: hidden;
+        border-radius: 25px;
+        background-color: white;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        box-shadow: 0 0 0 0.5em #4a90e2;
+      }
+
+      /* Checked */
+
+      .check__input:checked + .check__box {
+        background-color: #4a90e2;
+        background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Fcheck.svg?1550563475518);
+      }
+
+      /* Focused */
+
+      .check__input:focus + .check__box {
+        box-shadow: 0 0 0 0.5em #4a90e2, 0 0 0 0.2em #7ed321;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="js/main.js"></script>
+  </body>
+</html>
